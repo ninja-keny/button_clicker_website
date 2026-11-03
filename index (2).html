@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #03f7ff;
+        }
+        .click_counter {
+            margin-top: 20px;
+            margin-left: -700px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 90px;
+        }
+        button:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        }
+        div.flexbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div.shop {
+            padding: 20px;
+            border: 2px solid #000000;
+            border-radius: 10px;
+            background-color: #fff;
+            display: inline-block;
+            height: 500px;
+            width: 400px;
+            margin-top: -50px;
+            margin-right: -500px;
+        }
+        h1 {
+            font-size: 36px;
+            margin-top: -300px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 150px;
+            margin-left: -500px;
+            margin-right: -90px;
+        }
+    </style>
+    <script>
+        let clickValue = 1; // Initial click value
+        let clickCount = 0;
+
+        function incrementClickCount(amount) {
+            clickCount += amount;
+            document.getElementById("clickCount").innerText = "score: " + clickCount;
+        }
+
+        function buyClick() {
+            if (clickCount >= 10) {
+                clickCount -= 10;
+                clickValue += 1; // Increase click value by 1 for each purchase
+                document.getElementById("clickCount").innerText = "score: " + clickCount;
+            } else {
+                alert("Not enough points to buy a click!");
+            }
+        }
+        function updateClickValue() {
+            alert("You get " + clickValue + " clicks per click!");
+        }
+    </script>
+</head>
+<body>
+    <div class = "flexbox">
+    <u>
+    <h1>Clicker Game</h1>
+    </u>
+
+
+    <p id="clickCount">score: 0</p>
+    <button onclick="incrementClickCount(clickValue)">Click me!</button>
+    <div class = "shop"><h2>
+        <u>
+        welcome to the Clicker shop
+        </u>
+    </h2>
+    <button onclick="buyClick()">buy 1 click for 10 points</button>
+   </div>
+   <div class = "click_counter">
+   <button onclick="updateClickValue()">Click me to see how much click you get per click</button>
+   </div>
+    </div>
+</body>
+</html>
